@@ -1,0 +1,3760 @@
+{
+  "version": 1,
+  "generated": "2026-09-13",
+  "sources": {
+    "chrome": "https://developer.chrome.com/blog/css-scroll-state-queries",
+    "prismic": "https://prismic.io/blog/css-scroll-effects"
+  },
+  "extractionPolicy": "Records describe the canonical CSS-native token shape of each pattern (semantic skeleton, selectors, custom properties, animated properties, at-rules, timelines, state queries). They are representative reconstructions, not verbatim copies of third-party pens. Always open the linked demo before quoting an implementation.",
+  "cssNativeValues": [
+    "native",
+    "partial",
+    "non-native"
+  ],
+  "tokens": [
+    {
+      "id": "prismic-01-parallax-background",
+      "title": "Parallax background",
+      "category": "Parallax",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/p0waqqatsi/pen/vYwqQxV",
+      "mechanism": "CSS 3D parallax: a scrolling container with perspective, layers pushed back on the Z axis and scaled back up",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"parallax\"><section class=\"layer layer--back\"></section><section class=\"layer layer--base\"></section></div>",
+        "selectors": [
+          ".parallax",
+          ".layer",
+          ".layer--back",
+          ".layer--base"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "scroll container owns perspective + perspective-origin",
+          "layers are direct children and are translated on Z",
+          "content layer stays at translateZ(0) to keep text crisp"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--parallax-depth": "translateZ distance of the back layer",
+          "--parallax-scale": "compensating scale for the pushed-back layer"
+        },
+        "selectors": [
+          ".parallax",
+          ".layer",
+          ".layer--back",
+          ".layer--base"
+        ],
+        "properties": [
+          "perspective",
+          "perspective-origin",
+          "transform-style",
+          "transform",
+          "translate",
+          "scale",
+          "overflow-y",
+          "height"
+        ],
+        "atRules": [
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Perspective scrolling can trigger motion sickness — gate the depth on prefers-reduced-motion.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without 3D transform support the layers stack normally and the page scrolls flat.",
+        "iOS Safari ignores perspective on the scrolling root in some versions; test on device."
+      ],
+      "notes": [
+        "Prismic entry 1: Depth-layered nature scene where background layers scroll slower than the foreground."
+      ]
+    },
+    {
+      "id": "prismic-02-parallax-scroll-demo",
+      "title": "Parallax scroll demo",
+      "category": "Parallax",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/evolutionxbox/pen/JjvWPo",
+      "mechanism": "CSS 3D parallax: a scrolling container with perspective, layers pushed back on the Z axis and scaled back up",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"parallax\"><section class=\"layer layer--back\"></section><section class=\"layer layer--base\"></section></div>",
+        "selectors": [
+          ".parallax",
+          ".layer",
+          ".layer--back",
+          ".layer--base"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "scroll container owns perspective + perspective-origin",
+          "layers are direct children and are translated on Z",
+          "content layer stays at translateZ(0) to keep text crisp"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--parallax-depth": "translateZ distance of the back layer",
+          "--parallax-scale": "compensating scale for the pushed-back layer"
+        },
+        "selectors": [
+          ".parallax",
+          ".layer",
+          ".layer--back",
+          ".layer--base"
+        ],
+        "properties": [
+          "perspective",
+          "perspective-origin",
+          "transform-style",
+          "transform",
+          "translate",
+          "scale",
+          "overflow-y",
+          "height"
+        ],
+        "atRules": [
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Perspective scrolling can trigger motion sickness — gate the depth on prefers-reduced-motion.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without 3D transform support the layers stack normally and the page scrolls flat.",
+        "iOS Safari ignores perspective on the scrolling root in some versions; test on device."
+      ],
+      "notes": [
+        "Prismic entry 2: Six-layer parallax built on the Keith Clark perspective technique.",
+        "Uses the classic perspective + translateZ + compensating scale stack."
+      ]
+    },
+    {
+      "id": "prismic-03-css-only-parallax-scrolling",
+      "title": "CSS-only parallax scrolling",
+      "category": "Parallax",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/BlogFire/pen/bGBgzXr",
+      "mechanism": "CSS 3D parallax: a scrolling container with perspective, layers pushed back on the Z axis and scaled back up",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"parallax\"><section class=\"layer layer--back\"></section><section class=\"layer layer--base\"></section></div>",
+        "selectors": [
+          ".parallax",
+          ".layer",
+          ".layer--back",
+          ".layer--base"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "scroll container owns perspective + perspective-origin",
+          "layers are direct children and are translated on Z",
+          "content layer stays at translateZ(0) to keep text crisp"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--parallax-depth": "translateZ distance of the back layer",
+          "--parallax-scale": "compensating scale for the pushed-back layer"
+        },
+        "selectors": [
+          ".parallax",
+          ".layer",
+          ".layer--back",
+          ".layer--base"
+        ],
+        "properties": [
+          "perspective",
+          "perspective-origin",
+          "transform-style",
+          "transform",
+          "translate",
+          "scale",
+          "overflow-y",
+          "height"
+        ],
+        "atRules": [
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Perspective scrolling can trigger motion sickness — gate the depth on prefers-reduced-motion.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without 3D transform support the layers stack normally and the page scrolls flat.",
+        "iOS Safari ignores perspective on the scrolling root in some versions; test on device."
+      ],
+      "notes": [
+        "Prismic entry 3: Scroll container with pushed-back layers producing depth without script."
+      ]
+    },
+    {
+      "id": "prismic-04-css-parallax-scroll",
+      "title": "CSS parallax scroll",
+      "category": "Parallax",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/ve00ryca/pen/XWNQPxp",
+      "mechanism": "CSS 3D parallax: a scrolling container with perspective, layers pushed back on the Z axis and scaled back up",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"parallax\"><section class=\"layer layer--back\"></section><section class=\"layer layer--base\"></section></div>",
+        "selectors": [
+          ".parallax",
+          ".layer",
+          ".layer--back",
+          ".layer--base"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "scroll container owns perspective + perspective-origin",
+          "layers are direct children and are translated on Z",
+          "content layer stays at translateZ(0) to keep text crisp"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--parallax-depth": "translateZ distance of the back layer",
+          "--parallax-scale": "compensating scale for the pushed-back layer"
+        },
+        "selectors": [
+          ".parallax",
+          ".layer",
+          ".layer--back",
+          ".layer--base"
+        ],
+        "properties": [
+          "perspective",
+          "perspective-origin",
+          "transform-style",
+          "transform",
+          "translate",
+          "scale",
+          "overflow-y",
+          "height"
+        ],
+        "atRules": [
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Perspective scrolling can trigger motion sickness — gate the depth on prefers-reduced-motion.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without 3D transform support the layers stack normally and the page scrolls flat.",
+        "iOS Safari ignores perspective on the scrolling root in some versions; test on device."
+      ],
+      "notes": [
+        "Prismic entry 4: Section-per-layer parallax page composed entirely in CSS."
+      ]
+    },
+    {
+      "id": "prismic-05-css-only-parallax-scroll",
+      "title": "CSS-only parallax scroll",
+      "category": "Parallax",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/karldanninger/pen/NwzMzN",
+      "mechanism": "Background parallax driven by background-attachment / background-position on a full-bleed section",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"hero\"><div class=\"hero__content\"></div></section>",
+        "selectors": [
+          ".hero",
+          ".hero__content"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "section owns the background image",
+          "content sits above the background in normal flow"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--parallax-speed": "ratio between background travel and scroll distance"
+        },
+        "selectors": [
+          ".hero",
+          ".hero__content"
+        ],
+        "properties": [
+          "background-image",
+          "background-attachment",
+          "background-position",
+          "background-size",
+          "min-height"
+        ],
+        "atRules": [
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Maintain text contrast over the image with an overlay layer.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "background-attachment: fixed is ignored on most mobile browsers — the background falls back to a static cover image.",
+        "Decorative background images need no alt text but must not carry meaning."
+      ],
+      "notes": [
+        "Prismic entry 5: Full-bleed image sections whose backgrounds lag behind the scroll.",
+        "background-attachment: fixed is the fragile part on mobile; a view() timeline on background-position is the modern replacement."
+      ]
+    },
+    {
+      "id": "prismic-06-sticky-full-page-slides",
+      "title": "Sticky full page slides",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/nefejames/pen/JoPvBMq",
+      "mechanism": "CSS scroll snap: a snap container plus snap targets, with snapped state queried from CSS",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"snapper\"><article class=\"snapper__item\"><figcaption></figcaption></article></div>",
+        "selectors": [
+          ".snapper",
+          ".snapper__item",
+          ".snapper__item > *"
+        ],
+        "attributes": [
+          "class",
+          "tabindex"
+        ],
+        "relationships": [
+          "scroll container carries scroll-snap-type",
+          "snap target carries scroll-snap-align AND container-type: scroll-state",
+          "a child of the snap target reads the snapped state"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--snap-inactive-opacity": "opacity of unsnapped items"
+        },
+        "selectors": [
+          ".snapper",
+          ".snapper__item",
+          ".snapper__item > *"
+        ],
+        "properties": [
+          "scroll-snap-type",
+          "scroll-snap-align",
+          "scroll-snap-stop",
+          "scroll-padding",
+          "container-type",
+          "opacity",
+          "transform",
+          "transition",
+          "overflow"
+        ],
+        "atRules": [
+          "@container scroll-state(snapped: x)",
+          "@container not scroll-state(snapped: x)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "snapped: x",
+          "snapped: y",
+          "snapped: inline",
+          "snapped: block"
+        ]
+      },
+      "accessibility": [
+        "Snap containers must stay keyboard scrollable; do not trap focus on the snapped item.",
+        "mandatory snapping can strand users on long items — prefer proximity when items exceed the viewport."
+      ],
+      "fallback": [
+        "Without scroll-state support the items keep their resting styles and snapping still works.",
+        "Snapped queries fire like scrollsnapchanging (earliest hook); use the scrollsnapchange JS event when you need the settled state."
+      ],
+      "notes": [
+        "Prismic entry 6: Full-page slides that snap in and out of view while sticky backgrounds parallax."
+      ]
+    },
+    {
+      "id": "prismic-07-sticky-section-layout",
+      "title": "Sticky section layout",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/p0waqqatsi/pen/wvbzQxj",
+      "mechanism": "position: sticky pinning inside a scroll container, styled through a scroll-state(stuck) query",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<header class=\"stuck-top\"><nav></nav></header>",
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "the sticky element is the scroll-state container",
+          "the element that restyles must be a CHILD of the container, never the container itself"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--sticky-offset": "inset-block-start used for the sticky stop",
+          "--sticky-shadow": "shadow token applied once stuck"
+        },
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "properties": [
+          "position",
+          "top",
+          "inset-block-start",
+          "inset-inline",
+          "z-index",
+          "container-type",
+          "box-shadow",
+          "background",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state(stuck: top)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "stuck: top",
+          "stuck: bottom"
+        ]
+      },
+      "accessibility": [
+        "A sticky header must not cover the focused element — pair it with scroll-margin-top on focus targets.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without scroll-state support the sticky positioning still works; only the stuck styling is skipped.",
+        "Pre-scroll-state alternative is an IntersectionObserver sentinel toggling a class."
+      ],
+      "notes": [
+        "Prismic entry 7: Sticky sidebar (table-of-contents pattern) paired with a parallax media column."
+      ]
+    },
+    {
+      "id": "prismic-08-sticky-stacking-on-scroll",
+      "title": "Sticky stacking on scroll",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/p0waqqatsi/pen/mdYEYqe",
+      "mechanism": "Stacked/pinned sections: each section sticks at the same offset so later sections cover earlier ones",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"stack\"><article class=\"stack__card\"></article></section>",
+        "selectors": [
+          ".stack",
+          ".stack__card"
+        ],
+        "attributes": [
+          "class",
+          "style=\"--i: 0\""
+        ],
+        "relationships": [
+          "each card is sticky at a shared or index-offset top",
+          "the stacking context comes from the shared parent, not from z-index per card"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--i": "card index, used to offset the sticky stop and the scale",
+          "--stack-offset": "distance between successive pinned cards"
+        },
+        "selectors": [
+          ".stack",
+          ".stack__card"
+        ],
+        "properties": [
+          "position",
+          "top",
+          "transform",
+          "scale",
+          "border-radius",
+          "animation-timeline",
+          "view-timeline-name"
+        ],
+        "atRules": [
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)",
+          "@keyframes"
+        ],
+        "keyframes": [
+          "stack-shrink"
+        ],
+        "timelines": [
+          "view()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Stacked cards hide content behind other content — ensure each card is reachable by keyboard in DOM order.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Falls back to a normal vertical card list when sticky or scroll-driven animation is unavailable."
+      ],
+      "notes": [
+        "Prismic entry 8: Six cards that stack on top of each other with a bounce as they pin."
+      ]
+    },
+    {
+      "id": "prismic-09-responsive-sticky-header-navigation",
+      "title": "Responsive sticky header navigation",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/MarcRay/pen/PomBeP",
+      "mechanism": "position: sticky pinning inside a scroll container, styled through a scroll-state(stuck) query",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<header class=\"stuck-top\"><nav></nav></header>",
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "the sticky element is the scroll-state container",
+          "the element that restyles must be a CHILD of the container, never the container itself"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--sticky-offset": "inset-block-start used for the sticky stop",
+          "--sticky-shadow": "shadow token applied once stuck"
+        },
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "properties": [
+          "position",
+          "top",
+          "inset-block-start",
+          "inset-inline",
+          "z-index",
+          "container-type",
+          "box-shadow",
+          "background",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state(stuck: top)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "stuck: top",
+          "stuck: bottom"
+        ]
+      },
+      "accessibility": [
+        "A sticky header must not cover the focused element — pair it with scroll-margin-top on focus targets.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without scroll-state support the sticky positioning still works; only the stuck styling is skipped.",
+        "Pre-scroll-state alternative is an IntersectionObserver sentinel toggling a class."
+      ],
+      "notes": [
+        "Prismic entry 9: Nav bar that reveals and pins at the top once the page is scrolled.",
+        "The Chrome scroll-state article lists this exact pen as a candidate for removing its JavaScript with @container scroll-state(stuck: top).",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-10-responsive-sticky-sidebar",
+      "title": "Responsive sticky sidebar",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/jamesdarren/pen/AajKKg",
+      "mechanism": "position: sticky pinning inside a scroll container, styled through a scroll-state(stuck) query",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<header class=\"stuck-top\"><nav></nav></header>",
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "the sticky element is the scroll-state container",
+          "the element that restyles must be a CHILD of the container, never the container itself"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--sticky-offset": "inset-block-start used for the sticky stop",
+          "--sticky-shadow": "shadow token applied once stuck"
+        },
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "properties": [
+          "position",
+          "top",
+          "inset-block-start",
+          "inset-inline",
+          "z-index",
+          "container-type",
+          "box-shadow",
+          "background",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state(stuck: top)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "stuck: top",
+          "stuck: bottom"
+        ]
+      },
+      "accessibility": [
+        "A sticky header must not cover the focused element — pair it with scroll-margin-top on focus targets.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without scroll-state support the sticky positioning still works; only the stuck styling is skipped.",
+        "Pre-scroll-state alternative is an IntersectionObserver sentinel toggling a class."
+      ],
+      "notes": [
+        "Prismic entry 10: Sidebar pinned within its column while the main content scrolls past."
+      ]
+    },
+    {
+      "id": "prismic-11-sticky-parallax-sections",
+      "title": "Sticky parallax sections",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/hexagoncircle/pen/JjRYaZw",
+      "mechanism": "position: sticky pinning inside a scroll container, styled through a scroll-state(stuck) query",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<header class=\"stuck-top\"><nav></nav></header>",
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "the sticky element is the scroll-state container",
+          "the element that restyles must be a CHILD of the container, never the container itself"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--sticky-offset": "inset-block-start used for the sticky stop",
+          "--sticky-shadow": "shadow token applied once stuck"
+        },
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "properties": [
+          "position",
+          "top",
+          "inset-block-start",
+          "inset-inline",
+          "z-index",
+          "container-type",
+          "box-shadow",
+          "background",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state(stuck: top)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "stuck: top",
+          "stuck: bottom"
+        ]
+      },
+      "accessibility": [
+        "A sticky header must not cover the focused element — pair it with scroll-margin-top on focus targets.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without scroll-state support the sticky positioning still works; only the stuck styling is skipped.",
+        "Pre-scroll-state alternative is an IntersectionObserver sentinel toggling a class."
+      ],
+      "notes": [
+        "Prismic entry 11: Section backgrounds hook in place momentarily as each section scrolls through."
+      ]
+    },
+    {
+      "id": "prismic-12-sticky-navigation-with-smooth-scrolling",
+      "title": "Sticky navigation with smooth scrolling",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/prvnbist/pen/GQMPZq",
+      "mechanism": "position: sticky pinning inside a scroll container, styled through a scroll-state(stuck) query",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<header class=\"stuck-top\"><nav></nav></header>",
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "the sticky element is the scroll-state container",
+          "the element that restyles must be a CHILD of the container, never the container itself"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--sticky-offset": "inset-block-start used for the sticky stop",
+          "--sticky-shadow": "shadow token applied once stuck"
+        },
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "properties": [
+          "position",
+          "top",
+          "inset-block-start",
+          "inset-inline",
+          "z-index",
+          "container-type",
+          "box-shadow",
+          "background",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state(stuck: top)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "stuck: top",
+          "stuck: bottom"
+        ]
+      },
+      "accessibility": [
+        "A sticky header must not cover the focused element — pair it with scroll-margin-top on focus targets.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Without scroll-state support the sticky positioning still works; only the stuck styling is skipped.",
+        "Pre-scroll-state alternative is an IntersectionObserver sentinel toggling a class."
+      ],
+      "notes": [
+        "Prismic entry 12: Nav that shrinks on scroll down and expands on scroll back up, with smooth anchor scrolling.",
+        "scroll-behavior: smooth replaces the scripted scrolling; the shrink state is a scroll-state(stuck: top) query.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-13-stacked-cards-effect",
+      "title": "Stacked cards effect",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/HugoSalazar/pen/dyBzOdj",
+      "mechanism": "Stacked/pinned sections: each section sticks at the same offset so later sections cover earlier ones",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"stack\"><article class=\"stack__card\"></article></section>",
+        "selectors": [
+          ".stack",
+          ".stack__card"
+        ],
+        "attributes": [
+          "class",
+          "style=\"--i: 0\""
+        ],
+        "relationships": [
+          "each card is sticky at a shared or index-offset top",
+          "the stacking context comes from the shared parent, not from z-index per card"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--i": "card index, used to offset the sticky stop and the scale",
+          "--stack-offset": "distance between successive pinned cards"
+        },
+        "selectors": [
+          ".stack",
+          ".stack__card"
+        ],
+        "properties": [
+          "position",
+          "top",
+          "transform",
+          "scale",
+          "border-radius",
+          "animation-timeline",
+          "view-timeline-name"
+        ],
+        "atRules": [
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)",
+          "@keyframes"
+        ],
+        "keyframes": [
+          "stack-shrink"
+        ],
+        "timelines": [
+          "view()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Stacked cards hide content behind other content — ensure each card is reachable by keyboard in DOM order.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Falls back to a normal vertical card list when sticky or scroll-driven animation is unavailable."
+      ],
+      "notes": [
+        "Prismic entry 13: No-JS stacked cards scrubbed by a view() timeline as each card pins."
+      ]
+    },
+    {
+      "id": "prismic-14-gsap-stacked-cards",
+      "title": "GSAP stacked cards",
+      "category": "Sticky effects",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/HugoSalazar/pen/QWomQem",
+      "mechanism": "GSAP ScrollTrigger timeline (external runtime, not CSS-native)",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<section class=\"panel\"></section>",
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "attributes": [
+          "class",
+          "data-speed"
+        ],
+        "relationships": [
+          "ScrollTrigger pins/scrubs the element and writes inline transforms"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Honour reduced motion via gsap.matchMedia() — CSS media queries do not stop a JS tween.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Requires the GSAP runtime plus the ScrollTrigger plugin — do not add it for effects CSS can scrub natively.",
+        "Catalogued as inspiration only; xanimations does not install animation libraries."
+      ],
+      "notes": [
+        "Prismic entry 14: Same stacked-card result driven by GSAP instead of CSS.",
+        "Direct comparison with record prismic-13 — prefer the CSS version.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-15-slice-slider",
+      "title": "Slice slider",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/StephenScaff/pen/egOedp",
+      "mechanism": "Historical implementation: scroll event listener (or class toggling) updating inline styles",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<section class=\"section js-scroll\"></section>",
+        "selectors": [
+          ".section",
+          ".is-visible",
+          ".is-scrolled"
+        ],
+        "attributes": [
+          "class",
+          "data-scroll"
+        ],
+        "relationships": [
+          "script observes scroll position and toggles a state class on the element"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--progress": "value the script writes, read by CSS"
+        },
+        "selectors": [
+          ".section",
+          ".is-visible",
+          ".is-scrolled"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "transition",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scripted reveals must ship visible-by-default styles so content survives a script failure.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Re-implement CSS-natively with animation-timeline: view() or a scroll-state query before reaching for this.",
+        "If script is required, keep it passive ({passive: true}) and throttle with requestAnimationFrame."
+      ],
+      "notes": [
+        "Prismic entry 15: Sliced panels of copy that slide in and out as the user scrolls.",
+        "CSS-native equivalent: snap container plus per-slice view() timelines.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-16-3d-spatial-scroll-zoom",
+      "title": "3D spatial scroll zoom",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/argyleink/pen/ZEdrzJZ",
+      "mechanism": "3D transform scene scrubbed by scroll (perspective + translate3d on tiles or panels)",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"scene\"><div class=\"scene__tile\"></div></div>",
+        "selectors": [
+          ".scene",
+          ".scene__tile"
+        ],
+        "attributes": [
+          "class",
+          "style=\"--i: 0\""
+        ],
+        "relationships": [
+          "scene owns perspective and transform-style: preserve-3d",
+          "tiles are transformed children indexed by --i"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--i": "tile index",
+          "--depth": "translateZ distance",
+          "--tilt": "rotation angle"
+        },
+        "selectors": [
+          ".scene",
+          ".scene__tile"
+        ],
+        "properties": [
+          "perspective",
+          "transform-style",
+          "transform",
+          "translate",
+          "rotate",
+          "backface-visibility",
+          "animation-timeline"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "fly-in"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Large-scale Z motion is a vestibular trigger — gate it behind prefers-reduced-motion.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "preserve-3d is flattened in some engines; verify the layering fallback.",
+        "Falls back to a flat, statically laid out scene."
+      ],
+      "notes": [
+        "Prismic entry 16: Scroll pulls the viewer through layered 3D text, scrubbed by a CSS scroll timeline."
+      ]
+    },
+    {
+      "id": "prismic-17-css-scroll-animation",
+      "title": "CSS scroll animation",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/jazzpeh/pen/wvMrzpL",
+      "mechanism": "Historical implementation: scroll event listener (or class toggling) updating inline styles",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<section class=\"section js-scroll\"></section>",
+        "selectors": [
+          ".section",
+          ".is-visible",
+          ".is-scrolled"
+        ],
+        "attributes": [
+          "class",
+          "data-scroll"
+        ],
+        "relationships": [
+          "script observes scroll position and toggles a state class on the element"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--progress": "value the script writes, read by CSS"
+        },
+        "selectors": [
+          ".section",
+          ".is-visible",
+          ".is-scrolled"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "transition",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scripted reveals must ship visible-by-default styles so content survives a script failure.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Re-implement CSS-natively with animation-timeline: view() or a scroll-state query before reaching for this.",
+        "If script is required, keep it passive ({passive: true}) and throttle with requestAnimationFrame."
+      ],
+      "notes": [
+        "Prismic entry 17: Text blocks with contrasting backgrounds sliding in and out on scroll.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-18-text-scroll-on-reveal-effects",
+      "title": "Text scroll on reveal effects",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/thebabydino/pen/KKLWBJZ",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 18: Seven no-JS char-by-char reveal variants scrubbed on scroll.",
+        "Per-character delays come from an index custom property, not from script."
+      ]
+    },
+    {
+      "id": "prismic-19-css-scroll-triggered-animation-with-style-queries",
+      "title": "CSS scroll-triggered animation with style queries",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/hexagoncircle/pen/wvOPmGO",
+      "mechanism": "Container style query: a custom property set on the parent drives descendant styling, combined with scroll-driven updates",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"section\" style=\"--state: active\"><p class=\"section__text\"></p></section>",
+        "selectors": [
+          ".section",
+          ".section__text"
+        ],
+        "attributes": [
+          "class",
+          "style"
+        ],
+        "relationships": [
+          "the queried custom property lives on the container",
+          "descendants read it with @container style(--prop: value)"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--state": "the queried state token",
+          "--progress": "registered 0→1 progress value"
+        },
+        "selectors": [
+          ".section",
+          ".section__text"
+        ],
+        "properties": [
+          "container-type",
+          "animation-timeline",
+          "animation-range",
+          "color",
+          "scale",
+          "background-image"
+        ],
+        "atRules": [
+          "@container style(--state: active)",
+          "@property",
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "set-state"
+        ],
+        "timelines": [
+          "view()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Style queries change presentation only — keep semantics in the markup.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Register interpolated custom properties with @property or they will flip instead of animating.",
+        "Non-supporting browsers keep the default branch of the style query."
+      ],
+      "notes": [
+        "Prismic entry 19: Scale-up and gradient text treatment triggered through a container style query."
+      ]
+    },
+    {
+      "id": "prismic-20-scroll-driven-fade-in",
+      "title": "Scroll-driven fade-in",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/bassohr/pen/MWxzYBq",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 20: Canonical fade-and-rise entry animation on a view() timeline."
+      ]
+    },
+    {
+      "id": "prismic-21-css-text-scroll-animation",
+      "title": "CSS text scroll animation",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/ssonko-jimmy/pen/QWNRwNV",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 21: Copy that fades and tilts into place as it enters the viewport."
+      ]
+    },
+    {
+      "id": "prismic-22-duplicate-text-scroll-animation",
+      "title": "Duplicate text scroll animation",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/Mais1/pen/KKaRgQv",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 22: Duplicated headline that splits apart on scroll down and rejoins on scroll up.",
+        "Duplicate text must be aria-hidden so it is announced once."
+      ]
+    },
+    {
+      "id": "prismic-23-scroll-based-animation",
+      "title": "Scroll-based animation",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/johnson5409/pen/gOPeWPe",
+      "mechanism": "Historical implementation: scroll event listener (or class toggling) updating inline styles",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<section class=\"section js-scroll\"></section>",
+        "selectors": [
+          ".section",
+          ".is-visible",
+          ".is-scrolled"
+        ],
+        "attributes": [
+          "class",
+          "data-scroll"
+        ],
+        "relationships": [
+          "script observes scroll position and toggles a state class on the element"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--progress": "value the script writes, read by CSS"
+        },
+        "selectors": [
+          ".section",
+          ".is-visible",
+          ".is-scrolled"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "transition",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scripted reveals must ship visible-by-default styles so content survives a script failure.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Re-implement CSS-natively with animation-timeline: view() or a scroll-state query before reaching for this.",
+        "If script is required, keep it passive ({passive: true}) and throttle with requestAnimationFrame."
+      ],
+      "notes": [
+        "Prismic entry 23: Headlines that scale and fade into view as they are reached.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-24-marquee-page-border",
+      "title": "Marquee page border",
+      "category": "Text scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/hexagoncircle/pen/xxwBLMy",
+      "mechanism": "GSAP ScrollTrigger timeline (external runtime, not CSS-native)",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<section class=\"panel\"></section>",
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "attributes": [
+          "class",
+          "data-speed"
+        ],
+        "relationships": [
+          "ScrollTrigger pins/scrubs the element and writes inline transforms"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Honour reduced motion via gsap.matchMedia() — CSS media queries do not stop a JS tween.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Requires the GSAP runtime plus the ScrollTrigger plugin — do not add it for effects CSS can scrub natively.",
+        "Catalogued as inspiration only; xanimations does not install animation libraries."
+      ],
+      "notes": [
+        "Prismic entry 24: Text marquee running around the page border, direction bound to scroll direction.",
+        "A CSS-native variant is possible with scroll() timelines and a negative animation range, but the source pen uses ScrollTrigger.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-25-zoom-and-blur-background-image",
+      "title": "Zoom and blur background image",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/zrichard/pen/vYqMEY",
+      "mechanism": "CSS filter/backdrop-filter scrubbed across a scroll or view range",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<section class=\"media\"><img alt=\"\"></section>",
+        "selectors": [
+          ".media",
+          ".media img"
+        ],
+        "attributes": [
+          "class",
+          "alt"
+        ],
+        "relationships": [
+          "filter applies to the media element, not to the text layer above it"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--blur-max": "peak blur radius",
+          "--zoom-max": "peak scale"
+        },
+        "selectors": [
+          ".media",
+          ".media img"
+        ],
+        "properties": [
+          "filter",
+          "backdrop-filter",
+          "scale",
+          "transform",
+          "will-change",
+          "animation-timeline",
+          "animation-range"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "zoom-blur"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Blur on text is a readability hazard — filter the image layer only.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Large blur radii are expensive; cap the radius and promote the layer deliberately.",
+        "Falls back to the unfiltered image."
+      ],
+      "notes": [
+        "Prismic entry 25: Hero image that blurs and zooms out in proportion to scroll distance.",
+        "Scrub it natively with animation-timeline: scroll() on filter and scale.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-26-gsap-scrolltrigger-image-zoom",
+      "title": "GSAP ScrollTrigger image zoom",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/p0waqqatsi/pen/OJYVgMK",
+      "mechanism": "GSAP ScrollTrigger timeline (external runtime, not CSS-native)",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<section class=\"panel\"></section>",
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "attributes": [
+          "class",
+          "data-speed"
+        ],
+        "relationships": [
+          "ScrollTrigger pins/scrubs the element and writes inline transforms"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Honour reduced motion via gsap.matchMedia() — CSS media queries do not stop a JS tween.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Requires the GSAP runtime plus the ScrollTrigger plugin — do not add it for effects CSS can scrub natively.",
+        "Catalogued as inspiration only; xanimations does not install animation libraries."
+      ],
+      "notes": [
+        "Prismic entry 26: Depth-zoom on a background image driven by ScrollTrigger.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-27-css-inverted-reveal-scroller",
+      "title": "CSS inverted reveal scroller",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/jh3y/pen/ExzdZXN",
+      "mechanism": "Masked / clipped reveal scrubbed on scroll (clip-path, mask-image, or background-clip: text)",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<figure class=\"reveal\"><img alt=\"\"><figcaption></figcaption></figure>",
+        "selectors": [
+          ".reveal",
+          ".reveal img",
+          ".reveal figcaption"
+        ],
+        "attributes": [
+          "class",
+          "alt"
+        ],
+        "relationships": [
+          "the mask lives on the wrapper so the image itself stays untransformed",
+          "caption stays outside the clipped area so it is always readable"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-progress": "registered 0%→100% progress driving the clip/mask"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal img",
+          ".reveal figcaption"
+        ],
+        "properties": [
+          "clip-path",
+          "mask-image",
+          "mask-size",
+          "-webkit-background-clip",
+          "object-fit",
+          "animation-timeline",
+          "animation-range"
+        ],
+        "atRules": [
+          "@property",
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal-mask"
+        ],
+        "timelines": [
+          "view()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Never clip text that must be read; clipped text needs a fully visible end state.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Fall back to the fully revealed image when clip-path/mask animation is unsupported."
+      ],
+      "notes": [
+        "Prismic entry 27: Images revealed through an inverted mask that tracks scroll direction."
+      ]
+    },
+    {
+      "id": "prismic-28-slider-transitions",
+      "title": "Slider transitions",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/fluxus/pen/rweVgp",
+      "mechanism": "Historical implementation: scroll event listener (or class toggling) updating inline styles",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<section class=\"section js-scroll\"></section>",
+        "selectors": [
+          ".section",
+          ".is-visible",
+          ".is-scrolled"
+        ],
+        "attributes": [
+          "class",
+          "data-scroll"
+        ],
+        "relationships": [
+          "script observes scroll position and toggles a state class on the element"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--progress": "value the script writes, read by CSS"
+        },
+        "selectors": [
+          ".section",
+          ".is-visible",
+          ".is-scrolled"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "transition",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scripted reveals must ship visible-by-default styles so content survives a script failure.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Re-implement CSS-natively with animation-timeline: view() or a scroll-state query before reaching for this.",
+        "If script is required, keep it passive ({passive: true}) and throttle with requestAnimationFrame."
+      ],
+      "notes": [
+        "Prismic entry 28: Image and caption pairs transitioning as the slider advances on scroll.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-29-css-scroll-animation-with-subgrid",
+      "title": "CSS scroll animation with subgrid",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/jh3y/pen/VYZwOwd",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 29: Subgrid image wall whose tiles animate in on their own view() ranges.",
+        "subgrid keeps the tile ranges aligned to the parent grid tracks."
+      ]
+    },
+    {
+      "id": "prismic-30-scroll-image-effect",
+      "title": "Scroll image effect",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/bokoko33/pen/VwpOWMR",
+      "mechanism": "Canvas / WebGL rendering driven by scroll position (external runtime)",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<canvas class=\"stage\" aria-hidden=\"true\"></canvas>",
+        "selectors": [
+          ".stage"
+        ],
+        "attributes": [
+          "class",
+          "aria-hidden=\"true\""
+        ],
+        "relationships": [
+          "script maps scroll offset or velocity onto shader/render parameters"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".stage"
+        ],
+        "properties": [
+          "position",
+          "inset",
+          "pointer-events"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Canvas output is invisible to assistive tech — provide the same information in the DOM.",
+        "Offer a reduced-motion path that renders a static frame."
+      ],
+      "fallback": [
+        "Requires a rendering runtime (WebGL/Three.js) — outside the CSS-native scope.",
+        "Catalogued as inspiration only."
+      ],
+      "notes": [
+        "Prismic entry 30: Wave/glitch distortion whose intensity follows scroll velocity.",
+        "Scroll velocity is not exposed to CSS — this needs a render loop.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-31-image-transition-on-scroll",
+      "title": "Image transition on scroll",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/pizza3/pen/NgXowe",
+      "mechanism": "GSAP ScrollTrigger timeline (external runtime, not CSS-native)",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<section class=\"panel\"></section>",
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "attributes": [
+          "class",
+          "data-speed"
+        ],
+        "relationships": [
+          "ScrollTrigger pins/scrubs the element and writes inline transforms"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Honour reduced motion via gsap.matchMedia() — CSS media queries do not stop a JS tween.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Requires the GSAP runtime plus the ScrollTrigger plugin — do not add it for effects CSS can scrub natively.",
+        "Catalogued as inspiration only; xanimations does not install animation libraries."
+      ],
+      "notes": [
+        "Prismic entry 31: Image-to-image transition sequence tied to scroll progress.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-32-multi-filters",
+      "title": "Multi-filters",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/dominiksuter/pen/ajQdKL",
+      "mechanism": "CSS filter/backdrop-filter scrubbed across a scroll or view range",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<section class=\"media\"><img alt=\"\"></section>",
+        "selectors": [
+          ".media",
+          ".media img"
+        ],
+        "attributes": [
+          "class",
+          "alt"
+        ],
+        "relationships": [
+          "filter applies to the media element, not to the text layer above it"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--blur-max": "peak blur radius",
+          "--zoom-max": "peak scale"
+        },
+        "selectors": [
+          ".media",
+          ".media img"
+        ],
+        "properties": [
+          "filter",
+          "backdrop-filter",
+          "scale",
+          "transform",
+          "will-change",
+          "animation-timeline",
+          "animation-range"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "zoom-blur"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Blur on text is a readability hazard — filter the image layer only.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Large blur radii are expensive; cap the radius and promote the layer deliberately.",
+        "Falls back to the unfiltered image."
+      ],
+      "notes": [
+        "Prismic entry 32: Different CSS filters applied to one image per scrolled section.",
+        "Per-section filters are a natural fit for a style query or a view() timeline.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-33-sky-scroll-animation",
+      "title": "Sky scroll animation",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/magnificode/pen/JedJPO",
+      "mechanism": "Masked / clipped reveal scrubbed on scroll (clip-path, mask-image, or background-clip: text)",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<figure class=\"reveal\"><img alt=\"\"><figcaption></figcaption></figure>",
+        "selectors": [
+          ".reveal",
+          ".reveal img",
+          ".reveal figcaption"
+        ],
+        "attributes": [
+          "class",
+          "alt"
+        ],
+        "relationships": [
+          "the mask lives on the wrapper so the image itself stays untransformed",
+          "caption stays outside the clipped area so it is always readable"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-progress": "registered 0%→100% progress driving the clip/mask"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal img",
+          ".reveal figcaption"
+        ],
+        "properties": [
+          "clip-path",
+          "mask-image",
+          "mask-size",
+          "-webkit-background-clip",
+          "object-fit",
+          "animation-timeline",
+          "animation-range"
+        ],
+        "atRules": [
+          "@property",
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal-mask"
+        ],
+        "timelines": [
+          "view()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Never clip text that must be read; clipped text needs a fully visible end state.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Fall back to the fully revealed image when clip-path/mask animation is unsupported."
+      ],
+      "notes": [
+        "Prismic entry 33: Masked 'SKY' lettering that splits the image apart on scroll.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-34-horizontal-parallax-gallery",
+      "title": "Horizontal parallax gallery",
+      "category": "Image scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/pehaa/pen/zYxbxQg",
+      "mechanism": "Horizontal scroll gallery: an inline scroll container with snap, optionally scrubbing a view() timeline",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"gallery\"><figure class=\"gallery__item\"><img alt=\"\"></figure></div>",
+        "selectors": [
+          ".gallery",
+          ".gallery__item"
+        ],
+        "attributes": [
+          "class",
+          "alt",
+          "tabindex=\"0\""
+        ],
+        "relationships": [
+          "gallery is the inline scroll container",
+          "items are snap targets and can host their own view-timeline"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--gallery-gap": "gap between items",
+          "--parallax-shift": "inner image offset relative to its frame"
+        },
+        "selectors": [
+          ".gallery",
+          ".gallery__item"
+        ],
+        "properties": [
+          "overflow-x",
+          "overflow-block",
+          "scroll-snap-type",
+          "scroll-snap-align",
+          "display",
+          "grid-auto-flow",
+          "animation-timeline",
+          "view-timeline-axis"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "shift-x"
+        ],
+        "timelines": [
+          "view(inline)"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Horizontal scrollers must be operable with the keyboard and must not trap vertical page scroll.",
+        "Add visible focus styles to items that receive focus."
+      ],
+      "fallback": [
+        "Without scroll-driven support the gallery is still a plain horizontal scroller."
+      ],
+      "notes": [
+        "Prismic entry 34: CSS-only horizontal gallery with inner-image parallax and a hover color shift."
+      ]
+    },
+    {
+      "id": "prismic-35-eye-scroll",
+      "title": "Eye scroll",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/remino/pen/rNPojqX",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 35: Eyes that rotate and a page background that shifts, both scrubbed by scroll."
+      ]
+    },
+    {
+      "id": "prismic-36-changing-background-color-while-scrolling",
+      "title": "Changing background color while scrolling",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/Funsella/pen/nEreQq",
+      "mechanism": "Section-driven background color change across the scroll range",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<main class=\"sections\"><section class=\"section\" style=\"--bg: #101014\"></section></main>",
+        "selectors": [
+          ".sections",
+          ".section"
+        ],
+        "attributes": [
+          "class",
+          "style=\"--bg: ...\""
+        ],
+        "relationships": [
+          "each section declares its own color token",
+          "the root or a fixed backdrop interpolates between them"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--bg": "per-section background color",
+          "--bg-current": "registered color that interpolates"
+        },
+        "selectors": [
+          ".sections",
+          ".section"
+        ],
+        "properties": [
+          "background-color",
+          "transition",
+          "animation-timeline",
+          "animation-range",
+          "color-scheme"
+        ],
+        "atRules": [
+          "@property",
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "bg-shift"
+        ],
+        "timelines": [
+          "view()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Every interpolated background must keep text contrast at or above 4.5:1 across the whole range."
+      ],
+      "fallback": [
+        "Register the color property with @property or it will jump between values instead of interpolating.",
+        "Falls back to per-section static backgrounds."
+      ],
+      "notes": [
+        "Prismic entry 36: Page background interpolating between section colors during vertical scroll.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-37-full-screen-navigation-bar",
+      "title": "Full-screen navigation bar",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/andrejsharapov/pen/ZEVyKmR",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 37: Pure-CSS full-screen nav whose sidebar text clarifies on vertical scroll."
+      ]
+    },
+    {
+      "id": "prismic-38-scroll-driven-scroll-snapping-animations",
+      "title": "Scroll-driven scroll-snapping animations",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/giana/pen/BabdgjB",
+      "mechanism": "CSS scroll snap: a snap container plus snap targets, with snapped state queried from CSS",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"snapper\"><article class=\"snapper__item\"><figcaption></figcaption></article></div>",
+        "selectors": [
+          ".snapper",
+          ".snapper__item",
+          ".snapper__item > *"
+        ],
+        "attributes": [
+          "class",
+          "tabindex"
+        ],
+        "relationships": [
+          "scroll container carries scroll-snap-type",
+          "snap target carries scroll-snap-align AND container-type: scroll-state",
+          "a child of the snap target reads the snapped state"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--snap-inactive-opacity": "opacity of unsnapped items"
+        },
+        "selectors": [
+          ".snapper",
+          ".snapper__item",
+          ".snapper__item > *"
+        ],
+        "properties": [
+          "scroll-snap-type",
+          "scroll-snap-align",
+          "scroll-snap-stop",
+          "scroll-padding",
+          "container-type",
+          "opacity",
+          "transform",
+          "transition",
+          "overflow"
+        ],
+        "atRules": [
+          "@container scroll-state(snapped: x)",
+          "@container not scroll-state(snapped: x)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "snapped: x",
+          "snapped: y",
+          "snapped: inline",
+          "snapped: block"
+        ]
+      },
+      "accessibility": [
+        "Snap containers must stay keyboard scrollable; do not trap focus on the snapped item.",
+        "mandatory snapping can strand users on long items — prefer proximity when items exceed the viewport."
+      ],
+      "fallback": [
+        "Without scroll-state support the items keep their resting styles and snapping still works.",
+        "Snapped queries fire like scrollsnapchanging (earliest hook); use the scrollsnapchange JS event when you need the settled state."
+      ],
+      "notes": [
+        "Prismic entry 38: Five snapped sections with four selectable transition modes, all CSS.",
+        "Best reference for combining scroll-snap-type with per-section view() timelines."
+      ]
+    },
+    {
+      "id": "prismic-39-curved-svg-background-animation",
+      "title": "Curved SVG background animation",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/armantaherian/pen/ZyZWVZ",
+      "mechanism": "SVG shape or path animated across the scroll range",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<svg class=\"curve\" aria-hidden=\"true\" viewBox=\"0 0 1440 320\"><path d=\"...\"/></svg>",
+        "selectors": [
+          ".curve",
+          ".curve path"
+        ],
+        "attributes": [
+          "viewBox",
+          "aria-hidden=\"true\"",
+          "preserveAspectRatio"
+        ],
+        "relationships": [
+          "the SVG is a decorative sibling of the section it decorates"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--curve-progress": "registered progress driving d / stroke-dashoffset"
+        },
+        "selectors": [
+          ".curve",
+          ".curve path"
+        ],
+        "properties": [
+          "d",
+          "stroke-dasharray",
+          "stroke-dashoffset",
+          "transform",
+          "animation-timeline",
+          "animation-range"
+        ],
+        "atRules": [
+          "@property",
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "draw-curve"
+        ],
+        "timelines": [
+          "view()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Decorative SVG needs aria-hidden=\"true\"; meaningful SVG needs role=\"img\" and a title."
+      ],
+      "fallback": [
+        "Animating the d property requires @property support; fall back to a static path.",
+        "Path morphing in older browsers needs a script (SMIL or a library)."
+      ],
+      "notes": [
+        "Prismic entry 39: Curved SVG divider that reshapes as the page scrolls.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-40-change-background-color-with-gsap-scrolltrigger",
+      "title": "Change background color with GSAP ScrollTrigger",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/cameronknight/pen/RwRebNY",
+      "mechanism": "GSAP ScrollTrigger timeline (external runtime, not CSS-native)",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<section class=\"panel\"></section>",
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "attributes": [
+          "class",
+          "data-speed"
+        ],
+        "relationships": [
+          "ScrollTrigger pins/scrubs the element and writes inline transforms"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Honour reduced motion via gsap.matchMedia() — CSS media queries do not stop a JS tween.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Requires the GSAP runtime plus the ScrollTrigger plugin — do not add it for effects CSS can scrub natively.",
+        "Catalogued as inspiration only; xanimations does not install animation libraries."
+      ],
+      "notes": [
+        "Prismic entry 40: Background color plus parallax layers driven by ScrollTrigger.",
+        "Compare with record prismic-36 and with @property-based CSS interpolation.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-41-masthead-webpage",
+      "title": "Masthead webpage",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/andrejsharapov/pen/NWezrQZ",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 41: Full responsive page built from pure CSS scroll-driven animations: text effects, progress bars, reveals.",
+        "The most complete single-page demonstration in the article."
+      ]
+    },
+    {
+      "id": "prismic-42-highlight-text",
+      "title": "Highlight text",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/hexagoncircle/pen/gOPMwvd",
+      "mechanism": "GSAP ScrollTrigger timeline (external runtime, not CSS-native)",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<section class=\"panel\"></section>",
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "attributes": [
+          "class",
+          "data-speed"
+        ],
+        "relationships": [
+          "ScrollTrigger pins/scrubs the element and writes inline transforms"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".panel",
+          "[data-speed]"
+        ],
+        "properties": [
+          "transform",
+          "opacity",
+          "will-change"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Honour reduced motion via gsap.matchMedia() — CSS media queries do not stop a JS tween.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "Requires the GSAP runtime plus the ScrollTrigger plugin — do not add it for effects CSS can scrub natively.",
+        "Catalogued as inspiration only; xanimations does not install animation libraries."
+      ],
+      "notes": [
+        "Prismic entry 42: Progressive text highlighting in three styles as the reader scrolls.",
+        "The highlight sweep itself is reproducible with a view() timeline on background-size.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-43-reading-indicator",
+      "title": "Reading indicator",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/HugoSalazar/pen/xxMaarz",
+      "mechanism": "Scroll progress indicator driven by animation-timeline: scroll(root block)",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"progress\" role=\"presentation\"></div>",
+        "selectors": [
+          ".progress"
+        ],
+        "attributes": [
+          "class",
+          "role=\"presentation\"",
+          "aria-hidden=\"true\""
+        ],
+        "relationships": [
+          "progress bar is a fixed sibling of the content, not inside it"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--progress-height": "thickness of the indicator",
+          "--progress-color": "indicator color"
+        },
+        "selectors": [
+          ".progress"
+        ],
+        "properties": [
+          "position",
+          "transform-origin",
+          "scale",
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "height"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: scroll())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "grow-progress"
+        ],
+        "timelines": [
+          "scroll(root block)"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "A decorative progress bar must be aria-hidden; if it conveys state, expose it as a progressbar with aria-valuenow updated in JS."
+      ],
+      "fallback": [
+        "Hidden entirely when animation-timeline is unsupported — nothing essential is lost."
+      ],
+      "notes": [
+        "Prismic entry 43: CSS-only reading progress bar on a scroll(root block) timeline."
+      ]
+    },
+    {
+      "id": "prismic-44-scroll-reveal-effect-with-intersection-observer",
+      "title": "Scroll reveal effect with intersection observer",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/HugoSalazar/pen/yLgrZRZ",
+      "mechanism": "IntersectionObserver reveal: JS toggles a class when the element enters the viewport",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\" data-reveal></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal.is-visible"
+        ],
+        "attributes": [
+          "class",
+          "data-reveal"
+        ],
+        "relationships": [
+          "observer watches the element and adds the visible class once"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-delay": "stagger between siblings"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal.is-visible"
+        ],
+        "properties": [
+          "opacity",
+          "transform",
+          "transition",
+          "transition-delay"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Content must be readable with JavaScript disabled — apply the hidden state only after the observer is wired, or inside a .js class.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "CSS-native replacement: animation-timeline: view() with animation-range entry.",
+        "Keep IntersectionObserver when you need a one-shot trigger, analytics, or lazy work rather than a scrubbed timeline."
+      ],
+      "notes": [
+        "Prismic entry 44: Classic section fade-in wired to IntersectionObserver.",
+        "Direct JS counterpart to record prismic-20; keep the observer only when you need a one-shot trigger.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-45-airplanes",
+      "title": "Airplanes",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/ste-vg/pen/GRooLza",
+      "mechanism": "Canvas / WebGL rendering driven by scroll position (external runtime)",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<canvas class=\"stage\" aria-hidden=\"true\"></canvas>",
+        "selectors": [
+          ".stage"
+        ],
+        "attributes": [
+          "class",
+          "aria-hidden=\"true\""
+        ],
+        "relationships": [
+          "script maps scroll offset or velocity onto shader/render parameters"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".stage"
+        ],
+        "properties": [
+          "position",
+          "inset",
+          "pointer-events"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Canvas output is invisible to assistive tech — provide the same information in the DOM.",
+        "Offer a reduced-motion path that renders a static frame."
+      ],
+      "fallback": [
+        "Requires a rendering runtime (WebGL/Three.js) — outside the CSS-native scope.",
+        "Catalogued as inspiration only."
+      ],
+      "notes": [
+        "Prismic entry 45: Elaborate scroll-driven 3D scene.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-46-scrollifyjs-animatecss-css-flexbox",
+      "title": "ScrollifyJS + AnimateCSS + CSS flexbox",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/Zeindelf/pen/WjxyLK",
+      "mechanism": "Third-party scroll library (ScrollifyJS / AOS / similar) driving section transitions",
+      "cssNative": "non-native",
+      "html": {
+        "semanticSkeleton": "<section class=\"section\" data-aos=\"fade-up\"></section>",
+        "selectors": [
+          ".section",
+          "[data-aos]"
+        ],
+        "attributes": [
+          "class",
+          "data-aos",
+          "data-section-name"
+        ],
+        "relationships": [
+          "the library binds to the scroll container and toggles its own classes"
+        ]
+      },
+      "css": {
+        "customProperties": {},
+        "selectors": [
+          ".section",
+          "[data-aos]"
+        ],
+        "properties": [
+          "opacity",
+          "transform",
+          "transition"
+        ],
+        "atRules": [
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Library-injected animation often ignores prefers-reduced-motion by default — configure it explicitly.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "External dependency; catalogued for context only.",
+        "CSS-native replacement: scroll snap + view() timelines."
+      ],
+      "notes": [
+        "Prismic entry 46: Section-by-section scroll hijacking with a library-supplied animation set.",
+        "Scroll hijacking breaks user expectations and accessibility — prefer scroll snap.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-47-css-scroll-bars",
+      "title": "CSS scroll bars",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/GhostRider/pen/oNvoNv",
+      "mechanism": "Scroll progress indicator driven by animation-timeline: scroll(root block)",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<div class=\"progress\" role=\"presentation\"></div>",
+        "selectors": [
+          ".progress"
+        ],
+        "attributes": [
+          "class",
+          "role=\"presentation\"",
+          "aria-hidden=\"true\""
+        ],
+        "relationships": [
+          "progress bar is a fixed sibling of the content, not inside it"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--progress-height": "thickness of the indicator",
+          "--progress-color": "indicator color"
+        },
+        "selectors": [
+          ".progress"
+        ],
+        "properties": [
+          "position",
+          "transform-origin",
+          "scale",
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "height"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: scroll())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "grow-progress"
+        ],
+        "timelines": [
+          "scroll(root block)"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "A decorative progress bar must be aria-hidden; if it conveys state, expose it as a progressbar with aria-valuenow updated in JS."
+      ],
+      "fallback": [
+        "Hidden entirely when animation-timeline is unsupported — nothing essential is lost."
+      ],
+      "notes": [
+        "Prismic entry 47: Four tube-shaped indicators whose fill tracks scroll position.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-48-3d-css-scroll",
+      "title": "3D CSS scroll",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/shshaw/pen/GRdbZEL",
+      "mechanism": "3D transform scene scrubbed by scroll (perspective + translate3d on tiles or panels)",
+      "cssNative": "partial",
+      "html": {
+        "semanticSkeleton": "<div class=\"scene\"><div class=\"scene__tile\"></div></div>",
+        "selectors": [
+          ".scene",
+          ".scene__tile"
+        ],
+        "attributes": [
+          "class",
+          "style=\"--i: 0\""
+        ],
+        "relationships": [
+          "scene owns perspective and transform-style: preserve-3d",
+          "tiles are transformed children indexed by --i"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--i": "tile index",
+          "--depth": "translateZ distance",
+          "--tilt": "rotation angle"
+        },
+        "selectors": [
+          ".scene",
+          ".scene__tile"
+        ],
+        "properties": [
+          "perspective",
+          "transform-style",
+          "transform",
+          "translate",
+          "rotate",
+          "backface-visibility",
+          "animation-timeline"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "fly-in"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Large-scale Z motion is a vestibular trigger — gate it behind prefers-reduced-motion.",
+        "Keep scroll-linked motion decorative: no content is revealed only by motion."
+      ],
+      "fallback": [
+        "preserve-3d is flattened in some engines; verify the layering fallback.",
+        "Falls back to a flat, statically laid out scene."
+      ],
+      "notes": [
+        "Prismic entry 48: Alternating tiles folded into a 3D edge as the page scrolls.",
+        "cssNative classification reflects the source pen's own implementation; open the live pen before quoting it as CSS-native."
+      ]
+    },
+    {
+      "id": "prismic-49-css-shadow-on-scroll",
+      "title": "CSS shadow on scroll",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/t_afif/pen/bGrPBLJ",
+      "mechanism": "Overflow affordance: gradients that appear only when content can scroll",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"scroll-container\"><!-- overflowing content --></div>",
+        "selectors": [
+          ".scroll-container",
+          ".scroll-container::after"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "a single sticky pseudo-element spans the scrollport",
+          "the pseudo-element queries its own container's scrollable state"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--_shadow-top": "top gradient layer",
+          "--_shadow-bottom": "bottom gradient layer",
+          "--_shadow-color-opacity": "opacity applied when scrollable"
+        },
+        "selectors": [
+          ".scroll-container",
+          ".scroll-container::after"
+        ],
+        "properties": [
+          "container-type",
+          "overflow",
+          "background",
+          "background-attachment",
+          "transition",
+          "position"
+        ],
+        "atRules": [
+          "@container scroll-state(scrollable: top)",
+          "@container scroll-state(scrollable: bottom)",
+          "@property",
+          "@supports"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "scrollable: top",
+          "scrollable: bottom"
+        ]
+      },
+      "accessibility": [
+        "Shadows are an affordance, not the only cue — the region must still be keyboard scrollable and labelled."
+      ],
+      "fallback": [
+        "Lea Verou's background-attachment: local trick and scroll-driven-animation variants cover browsers without scroll-state.",
+        "Transitioning custom properties requires @property registration."
+      ],
+      "notes": [
+        "Prismic entry 49: Top and bottom scroll shadows on an overflowing container, no script.",
+        "CSS-only precursor to the Chrome scroll-state(scrollable) affordance — compare with chrome-scroll-shadows."
+      ]
+    },
+    {
+      "id": "prismic-50-css-timeline-animation",
+      "title": "CSS timeline animation",
+      "category": "Other CSS scroll animations",
+      "source": "https://prismic.io/blog/css-scroll-effects",
+      "demo": "https://codepen.io/mrtrimble/pen/YzRrzgM",
+      "mechanism": "CSS scroll-driven animation: @keyframes scrubbed by animation-timeline with scroll() or view()",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<section class=\"reveal\"><h2 class=\"reveal__title\"></h2></section>",
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "animated element is inside (or names) the scroll container that provides the timeline",
+          "view() timelines resolve against the nearest scrollport"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--reveal-distance": "translate distance at the start of the range"
+        },
+        "selectors": [
+          ".reveal",
+          ".reveal__title"
+        ],
+        "properties": [
+          "animation-name",
+          "animation-timeline",
+          "animation-range",
+          "animation-fill-mode",
+          "transform",
+          "opacity",
+          "view-timeline",
+          "scroll-timeline",
+          "timeline-scope"
+        ],
+        "atRules": [
+          "@keyframes",
+          "@supports (animation-timeline: view())",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [
+          "reveal"
+        ],
+        "timelines": [
+          "view()",
+          "scroll()"
+        ],
+        "stateQueries": []
+      },
+      "accessibility": [
+        "Scrubbed timelines have no duration — never add transition-duration/easing to them; the scroll position is the clock.",
+        "Wrap motion in @media (prefers-reduced-motion: no-preference); ship the static layout as the base state."
+      ],
+      "fallback": [
+        "Without animation-timeline support the element must render in its final, readable state (animation-play-state and keyframes simply do not apply).",
+        "Guard the whole block with @supports (animation-timeline: view()) so non-supporting browsers never see the from-state."
+      ],
+      "notes": [
+        "Prismic entry 50: Vertical timeline whose entries animate in on their own scroll ranges."
+      ]
+    },
+    {
+      "id": "chrome-first-scroll-state-query",
+      "title": "First scroll-state query",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/ByBxpwR",
+      "mechanism": "container-type: scroll-state on a sticky element; a child restyles through @container scroll-state(stuck: top)",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<header class=\"stuck-top\"><nav></nav></header>",
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "container-type + position: sticky on the same element",
+          "the querying element must be a child of the container, never the container itself"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--stuck-bg": "background applied while stuck"
+        },
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "properties": [
+          "container-type",
+          "position",
+          "top",
+          "background",
+          "color"
+        ],
+        "atRules": [
+          "@container scroll-state(stuck: top)",
+          "@supports (container-type: scroll-state)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "stuck: top"
+        ]
+      },
+      "accessibility": [
+        "Colour-only stuck feedback is decorative; do not encode meaning in it alone."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Pre-scroll-state equivalent: an IntersectionObserver sentinel toggling a class."
+      ],
+      "notes": [
+        "The three-step setup from the article: declare the container, select a child, query the state.",
+        "Companion demo comparing a scroll-state triggered animation with a scroll-driven one: https://codepen.io/web-dot-dev/pen/emOrBaV"
+      ]
+    },
+    {
+      "id": "chrome-stuck-shadow",
+      "title": "Add a shadow when stuck",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/GgKdryj",
+      "mechanism": "Sticky nav that gains box-shadow while stuck, transitioned as a discrete state change",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<header class=\"stuck-top\"><nav></nav></header>",
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "sticky header is the scroll-state container",
+          "nav child carries the transition and the shadow"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--shadow-5": "elevation token applied while stuck",
+          "--stuck-shadow-duration": "duration token for the shadow transition"
+        },
+        "selectors": [
+          ".stuck-top",
+          ".stuck-top > nav"
+        ],
+        "properties": [
+          "container-type",
+          "position",
+          "top",
+          "box-shadow",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state(stuck: top)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "stuck: top"
+        ]
+      },
+      "accessibility": [
+        "A shadow is an affordance only — the header must stay readable without it."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Without support the header sticks with no elevation change."
+      ],
+      "notes": [
+        "This is a state change, not a scrubbed timeline, so a time-based transition IS correct here.",
+        "Bind the duration/easing to motion tokens rather than literals; transitions-dev owns those recipes."
+      ]
+    },
+    {
+      "id": "chrome-current-stuck-header",
+      "title": "Activate the current stuck header",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/pvzVRaK",
+      "mechanism": "Alphabetised list where the currently stuck <dt> header highlights itself via scroll-state(stuck: top)",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<dl class=\"sticky-slide\"><dt><header></header></dt><dd></dd></dl>",
+        "selectors": [
+          ".sticky-slide dt",
+          ".sticky-slide dt > header"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "<dt> is both the sticky element and the scroll-state container",
+          "the inner <header> is the child that restyles"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--stuck-header-bg": "background of the active header",
+          "--stuck-header-shadow": "shadow of the active header"
+        },
+        "selectors": [
+          ".sticky-slide dt",
+          ".sticky-slide dt > header"
+        ],
+        "properties": [
+          "container-type",
+          "position",
+          "inset-block-start",
+          "inset-inline",
+          "background",
+          "box-shadow",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state(stuck: top)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "stuck: top"
+        ]
+      },
+      "accessibility": [
+        "Highlighting the current section helps orientation — mirror it in the document outline (real headings, not styled divs)."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Without support all headers keep their resting style while still sticking."
+      ],
+      "notes": [
+        "Side-attached variant from the same article: https://codepen.io/web-dot-dev/pen/azoGpGg",
+        "Uses a definition list so the structure stays semantic."
+      ]
+    },
+    {
+      "id": "chrome-boost-snapped-item",
+      "title": "Visually boost the snapped item",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/NPKMdBX",
+      "mechanism": "Centre-snapped carousel where unsnapped items dim via @container not scroll-state(snapped: x)",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"demo\"><article><blockquote></blockquote></article></div>",
+        "selectors": [
+          ".demo",
+          ".demo > article",
+          ".demo > article > *"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "scroll container has scroll-snap-type: x mandatory",
+          "snap target has scroll-snap-align: center AND container-type: scroll-state",
+          "a child of the snap target reads the state"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--snap-inactive-opacity": "opacity of the unsnapped testimonials"
+        },
+        "selectors": [
+          ".demo",
+          ".demo > article",
+          ".demo > article > *"
+        ],
+        "properties": [
+          "overflow",
+          "scroll-snap-type",
+          "scroll-snap-align",
+          "container-type",
+          "opacity",
+          "transition"
+        ],
+        "atRules": [
+          "@container not scroll-state(snapped: x)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "snapped: x",
+          "not snapped: x"
+        ]
+      },
+      "accessibility": [
+        "Dimmed items must still meet contrast requirements or be inert; do not rely on opacity to convey state alone.",
+        "Carousel must remain keyboard scrollable."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Without support every item renders at full opacity — the degraded state is the readable one, which is the right direction."
+      ],
+      "notes": [
+        "The not keyword inverts the query so the resting state needs no styling.",
+        "Three elements are mandatory: scroll container → snap target/container → querying child."
+      ]
+    },
+    {
+      "id": "chrome-snapped-caption",
+      "title": "Show the caption for the snapped item",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/XJrqpBG",
+      "mechanism": "figcaption slides up into the snapped card, gated on both @supports and prefers-reduced-motion",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"demo\"><figure class=\"card\"><img alt=\"\"><figcaption></figcaption></figure></div>",
+        "selectors": [
+          ".demo",
+          ".demo > .card",
+          ".demo > .card figcaption"
+        ],
+        "attributes": [
+          "class",
+          "alt"
+        ],
+        "relationships": [
+          "snap target is the card and the scroll-state container",
+          "figcaption is the querying descendant"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--caption-offset": "translateY distance of the hidden caption"
+        },
+        "selectors": [
+          ".demo",
+          ".demo > .card",
+          ".demo > .card figcaption"
+        ],
+        "properties": [
+          "overflow-x",
+          "scroll-snap-type",
+          "scroll-snap-align",
+          "container-type",
+          "transform",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state(snapped: x)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "snapped: x"
+        ]
+      },
+      "accessibility": [
+        "The caption text stays in the DOM and in the accessibility tree even when translated out of view — do not hide content that users need.",
+        "Reduced motion must show the caption without the slide."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Without support (or with reduced motion preferred) the caption renders in place, untranslated."
+      ],
+      "notes": [
+        "The article's canonical example of scroll-TRIGGERED animation as opposed to scroll-DRIVEN animation.",
+        "Reduced-motion gating belongs in CSS here, not in script."
+      ]
+    },
+    {
+      "id": "chrome-animated-slide-elements",
+      "title": "Animating in slide elements",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/dPbeNqY",
+      "mechanism": "Presentation slides snapped on the block axis; each heading animates in when its section is snapped",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<html><section><h1></h1></section></html>",
+        "selectors": [
+          "html",
+          "section",
+          "section > h1"
+        ],
+        "attributes": [],
+        "relationships": [
+          "the root is the snap container (scroll-snap-type: y mandatory)",
+          "each section is a snap target and a scroll-state container",
+          "the h1 queries the snapped state"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--ease-spring-3": "spring easing token for the entry",
+          "--slide-entry-delay": "delay before the heading animates"
+        },
+        "selectors": [
+          "html",
+          "section",
+          "section > h1"
+        ],
+        "properties": [
+          "scroll-snap-type",
+          "scroll-snap-align",
+          "scroll-snap-stop",
+          "container-type",
+          "opacity",
+          "transform",
+          "transition",
+          "transition-delay"
+        ],
+        "atRules": [
+          "@container scroll-state(snapped: block)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "snapped: block"
+        ]
+      },
+      "accessibility": [
+        "Slide content must be reachable and readable without the animation; the from-state lives inside the reduced-motion guard.",
+        "scroll-snap-stop: always prevents skipping slides, which also helps keyboard and switch users."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Without support the headings render at their final opacity and scale."
+      ],
+      "notes": [
+        "Replaces the IntersectionObserver-sets-a-class pattern entirely.",
+        "snapped queries behave like scrollsnapchanging (earliest hook); use the scrollsnapchange JS event when the eager trigger is wrong."
+      ]
+    },
+    {
+      "id": "chrome-scroll-shadows",
+      "title": "Indicate scroll with shadows",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/OPLZWBj",
+      "mechanism": "A single sticky ::after spanning the scrollport, fading top/bottom gradients in via scroll-state(scrollable)",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"scroll-container\"><!-- overflowing content --></div>",
+        "selectors": [
+          ".scroll-container",
+          ".scroll-container::after"
+        ],
+        "attributes": [
+          "class"
+        ],
+        "relationships": [
+          "the container is both a size and a scroll-state container",
+          "the pseudo-element queries its own container's state"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--_shadow-top": "top gradient layer",
+          "--_shadow-bottom": "bottom gradient layer",
+          "--_scroll-shadow-color-1-opacity": "registered opacity for the top shadow",
+          "--_scroll-shadow-color-2-opacity": "registered opacity for the bottom shadow",
+          "--_shadow-color-opacity": "peak opacity token"
+        },
+        "selectors": [
+          ".scroll-container",
+          ".scroll-container::after"
+        ],
+        "properties": [
+          "container-type",
+          "overflow",
+          "content",
+          "background",
+          "transition",
+          "position"
+        ],
+        "atRules": [
+          "@container scroll-state(scrollable: top)",
+          "@container scroll-state(scrollable: bottom)",
+          "@property",
+          "@supports (container-type: scroll-state)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "scrollable: top",
+          "scrollable: bottom"
+        ]
+      },
+      "accessibility": [
+        "Shadows hint at overflow but are not an accessible name — the scroll region still needs a label and keyboard access."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Lea Verou's background-attachment: local trick and the scroll-driven-animation variant both cover older browsers.",
+        "Transitioning a custom property requires registering it with @property."
+      ],
+      "notes": [
+        "container-type: scroll-state size shows the two container types composing on one element.",
+        "Pseudo-elements of a container can query that container — the container-can-not-query-itself rule applies to elements, not to its pseudos."
+      ]
+    },
+    {
+      "id": "chrome-scroll-arrow-prompt",
+      "title": "Arrow prompt",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/OPLZWBj",
+      "mechanism": "Directional scroll arrow shown/hidden/flipped by compound scroll-state(scrollable) queries",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"scroll-container\"><button class=\"scroll-hint\" aria-hidden=\"true\"></button></div>",
+        "selectors": [
+          ".scroll-container",
+          ".scroll-hint"
+        ],
+        "attributes": [
+          "class",
+          "aria-hidden=\"true\"",
+          "type=\"button\""
+        ],
+        "relationships": [
+          "hint is a descendant of the scroll-state container",
+          "compound queries combine scrollable states with or / and / not"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--hint-offset": "translate distance used to park the hint out of view"
+        },
+        "selectors": [
+          ".scroll-container",
+          ".scroll-hint"
+        ],
+        "properties": [
+          "container-type",
+          "translate",
+          "rotate",
+          "transition"
+        ],
+        "atRules": [
+          "@container scroll-state((scrollable: top) or (not (scrollable: bottom)))",
+          "@container scroll-state((scrollable: top) and (not (scrollable: bottom)))",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "scrollable: top",
+          "scrollable: bottom",
+          "compound",
+          "negated"
+        ]
+      },
+      "accessibility": [
+        "If the arrow is purely a hint, keep it out of the accessibility tree; if it scrolls on click, make it a real focusable button with a label."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Without support the hint stays in its resting position — make that position the harmless one."
+      ],
+      "notes": [
+        "Demonstrates compound and negated scroll-state queries.",
+        "Same pen as chrome-scroll-shadows and chrome-return-to-top; the article splits it into three lessons."
+      ]
+    },
+    {
+      "id": "chrome-return-to-top",
+      "title": "Return to top",
+      "category": "Chrome scroll-state queries",
+      "source": "https://developer.chrome.com/blog/css-scroll-state-queries",
+      "demo": "https://codepen.io/web-dot-dev/pen/OPLZWBj",
+      "mechanism": "Scroll-to-top button that hides itself with @container not scroll-state(scrollable: top)",
+      "cssNative": "native",
+      "html": {
+        "semanticSkeleton": "<div class=\"scroll-container\"><a class=\"to-top\" href=\"#top\">Back to top</a></div>",
+        "selectors": [
+          ".scroll-container",
+          ".to-top"
+        ],
+        "attributes": [
+          "class",
+          "href"
+        ],
+        "relationships": [
+          "the button is a descendant of the scroll-state container",
+          "its natural resting state is visible; the query hides it"
+        ]
+      },
+      "css": {
+        "customProperties": {
+          "--to-top-offset": "translate distance used to park the button off-screen"
+        },
+        "selectors": [
+          ".scroll-container",
+          ".to-top"
+        ],
+        "properties": [
+          "container-type",
+          "position",
+          "translate",
+          "transition"
+        ],
+        "atRules": [
+          "@container not scroll-state(scrollable: top)",
+          "@supports (container-type: scroll-state)",
+          "@media (prefers-reduced-motion: no-preference)"
+        ],
+        "keyframes": [],
+        "timelines": [],
+        "stateQueries": [
+          "not scrollable: top"
+        ]
+      },
+      "accessibility": [
+        "Use a real link or button with a visible label, not an icon alone.",
+        "A translated-away control is still focusable — pair the translate with visibility or inert if it must be unreachable."
+      ],
+      "fallback": [
+        "Chrome 133+; guard with @supports (container-type: scroll-state) and keep the unqueried state fully usable.",
+        "Without support the control is simply always visible, which is the safe degraded state."
+      ],
+      "notes": [
+        "Inverted logic keeps the CSS smaller: style the exception, not the rule."
+      ]
+    }
+  ]
+}

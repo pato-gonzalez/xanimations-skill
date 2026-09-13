@@ -1,0 +1,8 @@
+interface:
+  display_name: "xanimations"
+  short_description: "CSS-native scroll animation architecture"
+  brand_color: "#6E56CF"
+  default_prompt: "Use $xanimations to build this scroll reveal with CSS-native timelines, scroll-state queries, and reduced-motion fallbacks."
+
+policy:
+  allow_implicit_invocation: true
