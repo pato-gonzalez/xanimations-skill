@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <b>Agent ready skill for building scroll animations the browser already knows how to run.</b>
+  <b>Agent ready skill for building scroll animations the browser already knows hoo run.</b>
 </p>
 
 ---
@@ -12,7 +12,7 @@ Most scroll animations get reached for a library first. This skill reaches for C
 
 ## What it does
 
-When you ask Claude to build a scroll reveal, a sticky header that reacts when it sticks, parallax, snap feedback, or an overflow affordance, this skill takes over and gives it:
+When you ask your agent to build a scroll reveal, a sticky header that reacts when it sticks, parallax, snap feedback, or an overflow affordance, this skill takes over and gives it:
 
 - **A ladder to climb.** Does it need to move at all? → native CSS state → `scroll-state()` query → `animation-timeline` → style query → JS → library (never installed).
 - **Structure before motion.** Semantic skeleton first, then the trigger, then the animation.
@@ -23,10 +23,10 @@ When you ask Claude to build a scroll reveal, a sticky header that reacts when i
 ## Install
 
 ```bash
-git clone git@github.com:pato-gonzalez/xanimations-skill.git ~/.claude/skills/xanimations
+git clone git@github.com:pato-gonzalez/xanimations-skill.git ~/.Claude/skills/xanimations
 ```
 
-Claude picks it up on the next session. Ask for anything scroll-driven and it activates on its own.
+Your agent picks it up on the next session. Ask for anything scroll-driven and it activates on its own.
 
 ## Inside
 
