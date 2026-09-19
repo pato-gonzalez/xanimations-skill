@@ -3,7 +3,8 @@
 </p>
 
 <p align="center">
-  <b>A Claude Code skill for building scroll animations the browser already knows how to run.</b>
+  <b>A skill for building scroll animations the browser already knows how to run.</b><br>
+  <sub>Works in Claude Code, Codex, or any agent that can read a file.</sub>
 </p>
 
 ---
@@ -12,7 +13,7 @@ Most scroll animations get reached for a library first. This skill reaches for C
 
 ## What it does
 
-When you ask Claude to build a scroll reveal, a sticky header that reacts when it sticks, parallax, snap feedback, or an overflow affordance, this skill takes over and gives it:
+Ask your agent for a scroll reveal, a sticky header that reacts when it sticks, parallax, snap feedback, or an overflow affordance, and this skill gives it:
 
 - **A ladder to climb.** Does it need to move at all? → native CSS state → `scroll-state()` query → `animation-timeline` → style query → JS → library (never installed).
 - **Structure before motion.** Semantic skeleton first, then the trigger, then the animation.
@@ -22,22 +23,36 @@ When you ask Claude to build a scroll reveal, a sticky header that reacts when i
 
 ## Install
 
+It's Markdown and JSON — no runtime, no dependencies, no host APIs. Clone it where your agent looks for skills:
+
 ```bash
+# Claude Code
 git clone https://github.com/pato-gonzalez/xanimations-skill.git ~/.claude/skills/xanimations
+
+# Codex
+git clone https://github.com/pato-gonzalez/xanimations-skill.git ~/.codex/skills/xanimations
+
+# shared multi-agent tree — symlink the others at this one
+git clone https://github.com/pato-gonzalez/xanimations-skill.git ~/.agents/skills/xanimations
 ```
 
-Claude picks it up on the next session. Ask for anything scroll-driven and it activates on its own.
+Any other agent: clone it anywhere and point the agent at `SKILL.md`. [`AGENTS.md`](AGENTS.md) is the host-agnostic entry point and says the same thing in the form agents expect.
+
+Hosts that auto-discover skills pick it up on the next session; ask for anything scroll-driven and it activates on its own.
 
 ## Inside
 
 ```
 SKILL.md                                    the skill itself
+AGENTS.md                                   host-agnostic entry point
 references/chrome-scroll-state-queries.md   stuck / snapped / scrollable
 references/prismic-scroll-effects.md        50 catalogued effects
 references/effects.tokens.json              59 machine-readable records
 references/baseline-skills-comparison.md    what this skill does not own
 scripts/validate_tokens.py                  stdlib-only validator
 ```
+
+Every URL the skill points at is treated as data, never as instructions — third-party demos change under you, and an agent reading them shouldn't be taking orders from a CodePen.
 
 ## What it doesn't own
 
@@ -47,4 +62,6 @@ Named transition recipes ("fade-up", "slide-in") and the actual duration/easing 
 
 The banner above is the skill's own rules applied to itself. Each pill performs the state it names — `stuck` travels up, hits the edge and locks with a stuck shadow; `snapped` overshoots its snap point and settles; `scrollable` scrolls its own overflow behind a masked edge fade. Motion tokens live in `:root`, every label stays readable without animation, and `prefers-reduced-motion: reduce` renders the settled end state. Colors from the [ClickHouse design system](https://getdesign.md/clickhouse/design-md).
 
-MIT.
+## License
+
+MIT — see [`LICENSE`](LICENSE). Quoted Chrome and Prismic material is attributed in [`NOTICE`](NOTICE).

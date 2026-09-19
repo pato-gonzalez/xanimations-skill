@@ -1,0 +1,20 @@
+xanimations
+Copyright (c) 2026 Patricio Gonzalez
+Licensed under the MIT License (see LICENSE).
+
+This skill quotes and adapts third-party material:
+
+1. references/chrome-scroll-state-queries.md
+   Code samples and explanatory structure adapted from "CSS scroll-state queries"
+   by Adam Argyle, published on developer.chrome.com.
+   <https://developer.chrome.com/blog/css-scroll-state-queries>
+   Chrome for Developers content is licensed under the Creative Commons
+   Attribution 4.0 License, and its code samples under the Apache License 2.0.
+   <https://www.apache.org/licenses/LICENSE-2.0>
+
+2. references/prismic-scroll-effects.md and references/effects.tokens.json
+   Effect names, categories, and demo links catalogued from "50 CSS scroll
+   effects" on the Prismic blog. <https://prismic.io/blog/css-scroll-effects>
+   Token records are representative reconstructions of each pattern's token
+   shape, not verbatim copies of the linked pens. Each linked demo remains the
+   property of its own author under whatever terms that author applies.
