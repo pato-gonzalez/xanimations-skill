@@ -1,13 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="1200" height="280" role="img" aria-label="xanimations — CSS-native scroll animation architecture">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="1200" height="280" role="img" aria-label="xanimations — CSS-native scroll animation architecture. Three state pills: stuck, snapped, scrollable.">
   <style>
     :root {
       --canvas: #0a0a0a; --surface-card: #1a1a1a; --hairline: #2a2a2a;
       --primary: #faff69; --on-primary: #0a0a0a; --ink: #ffffff; --muted: #888888;
+
       --duration-fast: 180ms; --duration-base: 420ms; --duration-hero: 1100ms;
-      --duration-scrub: 6s;
+      --duration-cycle: 6s;
       --ease-out: cubic-bezier(.16,1,.3,1);
       --ease-spring: cubic-bezier(.34,1.56,.64,1);
+      --ease-linear: linear;
       --ease-step: steps(1, end);
+
       --sans: Inter, "Helvetica Neue", Arial, sans-serif;
       --mono: "JetBrains Mono", ui-monospace, monospace;
     }
@@ -15,18 +18,36 @@
     .grid   { stroke: var(--hairline); stroke-width: 1; }
     .word   { fill: var(--ink); font: 700 76px var(--sans); letter-spacing: -2.5px; }
     .caption{ fill: var(--muted); font: 600 12px var(--sans); letter-spacing: 1.5px; }
-    .chip   { font: 500 13px var(--mono); }
+    .chip-box { fill: var(--surface-card); }
+    .chip-txt { font: 500 13px var(--mono); fill: var(--muted); }
+    .lead.chip-box { fill: var(--primary); }
+    .lead.chip-txt { fill: var(--on-primary); }
+    .mark   { fill: var(--on-primary); }
     .rail   { fill: var(--hairline); }
     .scrub  { fill: var(--primary); }
     .band   { fill: var(--primary); }
 
+    /* one-shot intro */
     #wipe rect { animation: wipe var(--duration-hero) var(--ease-out) both; }
     .caption   { animation: rise var(--duration-base) var(--ease-out) 700ms both; }
     .band      { animation: band var(--duration-base) var(--ease-spring) both; }
-    .scrub     { animation: scrub var(--duration-scrub) var(--ease-out) infinite; }
-    .chip-box  { animation: flip var(--duration-scrub) var(--ease-step) infinite; }
-    .chip-txt  { animation: flipText var(--duration-scrub) var(--ease-step) infinite; }
+
+    /* master 6s cycle: each pill owns a 30% active window, offset by negative delays */
+    .scrub    { animation: scrub var(--duration-cycle) var(--ease-linear) infinite; }
+    .chip-box { animation: flip var(--duration-cycle) var(--ease-step) infinite; }
+    .chip-txt { animation: flipText var(--duration-cycle) var(--ease-step) infinite; }
     .c2 { animation-delay: -4s; } .c3 { animation-delay: -2s; }
+
+    /* stuck: the label travels up, hits the edge, locks — stuck shadow fades in */
+    .stuck-move { animation: stuckRise var(--duration-cycle) var(--ease-out) infinite; }
+    .stuck-line { animation: stuckLine var(--duration-cycle) var(--ease-out) infinite; fill: var(--on-primary); }
+
+    /* snapped: the label overshoots its snap point and settles; snap ticks flash */
+    .snap-move { animation: snapSlide var(--duration-cycle) var(--ease-spring) infinite; animation-delay: -4s; }
+    .snap-tick { animation: snapTick var(--duration-cycle) var(--ease-out) infinite; animation-delay: -4s; fill: var(--on-primary); }
+
+    /* scrollable: the content scrolls inside the pill, edges masked as the overflow affordance */
+    .scroll-move { animation: scrollLoop var(--duration-cycle) var(--ease-out) infinite; }
 
     @keyframes wipe { from { width: 0 } to { width: 760px } }
     @keyframes rise { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
@@ -35,11 +56,32 @@
     @keyframes flip { 0% { fill: var(--primary) } 30% { fill: var(--surface-card) } 100% { fill: var(--surface-card) } }
     @keyframes flipText { 0% { fill: var(--on-primary) } 30% { fill: var(--muted) } 100% { fill: var(--muted) } }
 
+    @keyframes stuckRise { 0% { transform: translateY(16px) } 9% { transform: translateY(0) } 100% { transform: translateY(0) } }
+    @keyframes stuckLine { 0%, 8% { opacity: 0 } 12%, 27% { opacity: .38 } 30%, 100% { opacity: 0 } }
+    @keyframes snapSlide { 0% { transform: translateX(-26px) } 13% { transform: translateX(0) } 100% { transform: translateX(0) } }
+    @keyframes snapTick { 0%, 9% { opacity: 0 } 13% { opacity: 1 } 24%, 100% { opacity: 0 } }
+    @keyframes scrollLoop { 0%, 63% { transform: translateY(0) } 74% { transform: translateY(-44px) } 85%, 100% { transform: translateY(-88px) } }
+
     @media (prefers-reduced-motion: reduce) {
-      #wipe rect, .caption, .band, .scrub, .chip-box, .chip-txt { animation: none; }
+      #wipe rect, .caption, .band, .scrub, .chip-box, .chip-txt,
+      .stuck-move, .stuck-line, .snap-move, .snap-tick, .scroll-move { animation: none; }
       #wipe rect { width: 760px } .caption { opacity: 1 } .scrub { width: 1040px }
+      .stuck-line, .snap-tick { opacity: .38 }
     }
   </style>
+
+  <defs>
+    <clipPath id="cp1"><rect x="70"  y="204" width="132" height="44" rx="8"/></clipPath>
+    <clipPath id="cp2"><rect x="216" y="204" width="140" height="44" rx="8"/></clipPath>
+    <clipPath id="cp3"><rect x="370" y="204" width="152" height="44" rx="8"/></clipPath>
+    <linearGradient id="fadeY" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#000"/>
+      <stop offset=".3"  stop-color="#fff"/>
+      <stop offset=".7"  stop-color="#fff"/>
+      <stop offset="1"   stop-color="#000"/>
+    </linearGradient>
+    <mask id="edgeFade"><rect x="370" y="204" width="152" height="44" fill="url(#fadeY)"/></mask>
+  </defs>
 
   <rect class="canvas" width="1200" height="280" rx="12"/>
   <g class="grid" opacity=".55">
@@ -52,13 +94,29 @@
 
   <text class="caption" x="72" y="186">CSS-NATIVE SCROLL ANIMATION ARCHITECTURE</text>
 
-  <g class="chip">
-    <rect class="chip-box" x="70"  y="212" width="132" height="34" rx="8"/>
-    <text class="chip-txt" x="86"  y="234">stuck</text>
-    <rect class="chip-box c2" x="216" y="212" width="132" height="34" rx="8"/>
-    <text class="chip-txt c2" x="232" y="234">snapped</text>
-    <rect class="chip-box c3" x="362" y="212" width="146" height="34" rx="8"/>
-    <text class="chip-txt c3" x="378" y="234">scrollable</text>
+  <!-- stuck -->
+  <rect class="chip-box lead" x="70" y="204" width="132" height="44" rx="8"/>
+  <g clip-path="url(#cp1)">
+    <g class="stuck-move"><text class="chip-txt lead" x="88" y="229">stuck</text></g>
+    <rect class="stuck-line" x="88" y="236" width="62" height="2" rx="1"/>
+  </g>
+
+  <!-- snapped -->
+  <rect class="chip-box c2" x="216" y="204" width="140" height="44" rx="8"/>
+  <g clip-path="url(#cp2)">
+    <rect class="snap-tick" x="285" y="208" width="2" height="6" rx="1"/>
+    <rect class="snap-tick" x="285" y="238" width="2" height="6" rx="1"/>
+    <g class="snap-move"><text class="chip-txt c2" x="234" y="231">snapped</text></g>
+  </g>
+
+  <!-- scrollable -->
+  <rect class="chip-box c3" x="370" y="204" width="152" height="44" rx="8"/>
+  <g clip-path="url(#cp3)" mask="url(#edgeFade)">
+    <g class="scroll-move">
+      <text class="chip-txt c3" x="388" y="231">scrollable</text>
+      <text class="chip-txt c3" x="388" y="275">overflow</text>
+      <text class="chip-txt c3" x="388" y="319">scrollable</text>
+    </g>
   </g>
 
   <rect class="rail" x="70" y="264" width="1040" height="3" rx="2"/>

@@ -2,7 +2,7 @@
 
 Date: 2026-09-13
 Status: implemented
-Repository: `/Users/patogonzalez/orca/projects/xanimations-skill`
+Repository: `xanimations-skill`
 
 ## Purpose
 
@@ -67,7 +67,6 @@ xanimations never recreates, overrides, or installs `transitions-dev` recipes, a
 
 ```bash
 python3 scripts/validate_tokens.py
-python3 /Users/patogonzalez/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
 ```
 
 `validate_tokens.py` (standard library only) fails on invalid JSON, missing top-level fields, duplicate ids, any missing Chrome record, any missing Prismic record 1–50, an invalid `cssNative` value, missing nested `html`/`css` fields, a missing or non-URL `source`, a `demo` that is neither a URL nor `null`, and a record count other than 59.
@@ -76,7 +75,7 @@ python3 /Users/patogonzalez/.codex/skills/.system/skill-creator/scripts/quick_va
 
 One canonical directory, symlinked into both agent skill trees:
 
-- `~/.codex/skills/xanimations` → `/Users/patogonzalez/orca/projects/xanimations-skill`
-- `~/.agents/skills/xanimations` → `/Users/patogonzalez/orca/projects/xanimations-skill`
+- `~/.codex/skills/xanimations` → the checkout
+- `~/.agents/skills/xanimations` → the checkout
 
-Both paths were verified absent before linking. The install is recorded as one line in `~/.claude/pending-backup.md` per the Post-Installation Documentation Rule; the queue is not flushed.
+Both paths are verified absent before linking.

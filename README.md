@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <b>Agent ready skill for building scroll animations the browser already knows hoo run.</b>
+  <b>A Claude Code skill for building scroll animations the browser already knows how to run.</b>
 </p>
 
 ---
@@ -12,7 +12,7 @@ Most scroll animations get reached for a library first. This skill reaches for C
 
 ## What it does
 
-When you ask your agent to build a scroll reveal, a sticky header that reacts when it sticks, parallax, snap feedback, or an overflow affordance, this skill takes over and gives it:
+When you ask Claude to build a scroll reveal, a sticky header that reacts when it sticks, parallax, snap feedback, or an overflow affordance, this skill takes over and gives it:
 
 - **A ladder to climb.** Does it need to move at all? → native CSS state → `scroll-state()` query → `animation-timeline` → style query → JS → library (never installed).
 - **Structure before motion.** Semantic skeleton first, then the trigger, then the animation.
@@ -23,10 +23,10 @@ When you ask your agent to build a scroll reveal, a sticky header that reacts wh
 ## Install
 
 ```bash
-git clone git@github.com:pato-gonzalez/xanimations-skill.git ~/.Claude/skills/xanimations
+git clone https://github.com/pato-gonzalez/xanimations-skill.git ~/.claude/skills/xanimations
 ```
 
-Your agent picks it up on the next session. Ask for anything scroll-driven and it activates on its own.
+Claude picks it up on the next session. Ask for anything scroll-driven and it activates on its own.
 
 ## Inside
 
@@ -45,6 +45,6 @@ Named transition recipes ("fade-up", "slide-in") and the actual duration/easing 
 
 ## Notes
 
-The banner above is the skill's own rules applied to itself: tokens in `:root`, motion gated behind `prefers-reduced-motion`, nothing communicated by movement alone. Colors from the [ClickHouse design system](https://getdesign.md/clickhouse/design-md).
+The banner above is the skill's own rules applied to itself. Each pill performs the state it names — `stuck` travels up, hits the edge and locks with a stuck shadow; `snapped` overshoots its snap point and settles; `scrollable` scrolls its own overflow behind a masked edge fade. Motion tokens live in `:root`, every label stays readable without animation, and `prefers-reduced-motion: reduce` renders the settled end state. Colors from the [ClickHouse design system](https://getdesign.md/clickhouse/design-md).
 
 MIT.
