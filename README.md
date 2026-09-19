@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <b>A Claude Code skill for building scroll animations the browser already knows how to run.</b>
+  <b>Agent ready skill for building scroll animations the browser already knows how to run.</b>
 </p>
 
 ---
